@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">EconomiAppen</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="welcome">Welcome to the Economy App!</string>
+    <string name="action_settings">Settings</string>
+    <string name="inmatning_av_inkomster">Inmatning av Inkomster</string>
+    <string name="title">Title: </string>
+    <string name="datum">Datum: </string>
+    <string name="pris">Pris:  </string>
+    <string name="belopp">Belopp: </string>
+    <string name="kategori">Kategori: </string>
+    <string name="inmatning_av_utgifter">Inmatning av utgifter</string>
+    <string name="butten_save">Save</string>
+    <string name="first_name">First Name: </string>
+    <string name="last_name">Last Name: </string>
+    <string name="button_fortsät">Fortsätt</string>
+    <string name="save_data">Save data</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>
