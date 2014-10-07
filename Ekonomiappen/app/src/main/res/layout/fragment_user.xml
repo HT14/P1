@@ -68,7 +68,7 @@ tools:context="com.example.tgh.ekonomiappen.SharedPrefFragment">
     <Button
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:text="@string/button_fortsät"
+    android:text="@string/button_next"
     android:id="@+id/btnRegister" />
 
 </LinearLayout>

@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +28,7 @@ public class SharedPrefFragment extends Fragment {
     public static final String MyPREFERENCES = "MyPrefs" ;
     public static final String FirstName = "nameKey";
     public static final String LastName = "lastnameKey";
+    private Context mContext;
 
 
     public SharedPrefFragment() {
@@ -42,6 +44,7 @@ public class SharedPrefFragment extends Fragment {
         firstname = (EditText) view.findViewById(R.id.etFirstname);
         lastname = (EditText) view.findViewById(R.id.etLastname);
         register = (Button)view.findViewById(R.id.btnRegister);
+        sharedpreferences = this.getActivity().getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
         registerListeners();
         return view;
     }
@@ -61,7 +64,6 @@ public class SharedPrefFragment extends Fragment {
 
    public void onResume(){
         super.onResume();
-        sharedpreferences = this.getActivity().getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
         if (sharedpreferences.contains(FirstName))
         {
             firstname.setText(sharedpreferences.getString(FirstName, ""));
@@ -75,7 +77,6 @@ public class SharedPrefFragment extends Fragment {
 
     public void onPause(){
         super.onPause();
-        sharedpreferences = this.getActivity().getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedpreferences.edit();
         String firstN  = firstname.getText().toString();
         String lastN  = lastname.getText().toString();
@@ -84,4 +85,32 @@ public class SharedPrefFragment extends Fragment {
         editor.commit();
     }
 
+    /*
+    public String getUser (){
+        sharedpreferences = mContext.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+        String res;
+        res = (sharedpreferences.getString(FirstName, ""));
+        res = res +  (sharedpreferences.getString(LastName, ""));
+        return res;
+    }*/
+
+    public String loadPrefs() {
+        String res;
+        String name = (sharedpreferences.getString(FirstName, " "));
+        String Lname = sharedpreferences.getString(LastName, " ");
+        res = name +" "+ Lname;
+        return res;
+    }
+  /*  public String getUser (){
+        sharedpreferences = this.getActivity().getPreferences(0);
+        String restoredText = sharedpreferences.getString("FirstName", null);
+        return restoredText;
+    /*
+    if (restoredText != null)  {
+        mSaved.setText(restoredText, TextView.BufferType.EDITABLE);
+        int selectionStart = prefs.getInt("selection-start", -1);
+        int selectionEnd = prefs.getInt("selection-end", -1);
+  if (selectionStart != -1 && selectionEnd != -1)
+  {
+     prefs.getAll()mModified.setSelection(selectionStart, selectionEnd);*/
 }

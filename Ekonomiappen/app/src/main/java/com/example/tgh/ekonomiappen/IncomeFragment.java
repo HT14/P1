@@ -2,10 +2,8 @@ package com.example.tgh.ekonomiappen;
 
 
 
-import android.database.Cursor;
 import android.os.Bundle;
 import android.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,17 +17,18 @@ import android.widget.Spinner;
  * A simple {@link android.app.Fragment} subclass.
  *
  */
-public class UtgiftsFragment extends Fragment {
+public class IncomeFragment extends Fragment {
     private EditText etTitle;
     private EditText etDatum;
-    private EditText etPrice;
+    private EditText etBellop;
     private Spinner spKategori;
-    private Button btSave;
-    private String kategoriStr = "LivsmedelFritidResorBoendeÖvrigt";
-    private String[] kategorier = {"Livsmedel", "Fritid", "Resor", "Boende","Övrigt"};
+    private Button btnSave_inkomst;
+    private Button bntShowResult;
+    private String kategoriStr = "LÖNÖVRIGT";
+    private String[] kategorier = {"Lön","Övrigt"};
     private Controller controller;
 
-    public UtgiftsFragment() {
+    public IncomeFragment() {
         // Required empty public constructor
     }
 
@@ -37,22 +36,40 @@ public class UtgiftsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_utgifts, container, false);
-        etTitle = (EditText)view.findViewById(R.id.etTitle_utgift);
-        etDatum = (EditText)view.findViewById(R.id.etDatum_utgift);
-        etPrice = (EditText)view.findViewById(R.id.etPrice);
-        spKategori = (Spinner)view.findViewById(R.id.spKategori_utgift);
-        btSave = (Button)view.findViewById(R.id.btnSave_utgift);
-        registerListeners();
+        View view = inflater.inflate(R.layout.fragment_inkomst, container, false);
+        initializeComponents(view);
         spKategori.setAdapter(new ArrayAdapter<String>(getActivity(), R.layout.spinner_row, kategorier));
+        registerListeners();
+        resultButtonListeners();
         return view;
     }
 
+    private void initializeComponents(View view) {
+        etTitle =(EditText)view.findViewById(R.id.etTitle_inkomst);
+        etDatum = (EditText)view.findViewById(R.id.etDatum_inkomst);
+        etBellop = (EditText)view.findViewById(R.id.etBellop);
+        spKategori = (Spinner)view.findViewById(R.id.spKategori_inkomst);
+        btnSave_inkomst = (Button)view.findViewById(R.id.btnSave_inkomst);
+        bntShowResult = (Button)view.findViewById(R.id.btnShowResult);
+    }
+
     private void registerListeners() {
-        btSave.setOnClickListener(new View.OnClickListener() {
+        btnSave_inkomst.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                controller.saveUtgiftClicked();
+                controller.saveIncomeClicked();
+                etTitle.setText("");
+                etDatum.setText("");
+                etBellop.setText("");
+            }
+        });
+    }
+
+    private void resultButtonListeners() {
+        bntShowResult.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                controller.showResultFragment();
             }
         });
     }
@@ -75,8 +92,8 @@ public class UtgiftsFragment extends Fragment {
         return etDatum.getText().toString();
     }
 
-    public String getPrice() {
-        return etPrice.getText().toString();
+    public String getBellop() {
+        return etBellop.getText().toString();
     }
 
     public void setController(Controller controller){

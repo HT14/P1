@@ -11,16 +11,13 @@ import android.view.MenuItem;
 
 public class MainActivity extends Activity {
     private Controller controller;
-    private UtgiftsFragment utgifter;
-    private InkomstFragment inkomster;
+    private ExpenseFragment expense;
+    private IncomeFragment income;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-    /*    FragmentManager fm = getFragmentManager();
-        UtgiftsFragment utgiftsFragment = (UtgiftsFragment)fm.findFragmentById(R.id.utgiftsFragment);
-        InkomstFragment inkomstFragment = (InkomstFragment)fm.findFragmentById(R.id.inkomstsFragment);*/
         controller = new Controller(this);
     }
 
@@ -34,17 +31,17 @@ public class MainActivity extends Activity {
         fragmentTransaction.commit();
     }
 
-    public void setUtgifter(UtgiftsFragment utgifter) {
+    public void setExpense(ExpenseFragment expense) {
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.upper_container, (Fragment)utgifter);
+        fragmentTransaction.replace(R.id.upper_container, (Fragment)expense);
         fragmentTransaction.commit();
     }
 
-    public void setInkomster(InkomstFragment inkomster) {
+    public void setIncome(IncomeFragment income) {
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.lower_container, (Fragment)inkomster);
+        fragmentTransaction.replace(R.id.lower_container, (Fragment) income);
         fragmentTransaction.commit();
     }
 
@@ -65,5 +62,13 @@ public class MainActivity extends Activity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void setResult(String user) {
+        ResultFragment resultFragment = ResultFragment.newInstance(user);
+        FragmentManager fm = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fm.beginTransaction();
+        fragmentTransaction.replace(R.id.upper_container, resultFragment);
+        fragmentTransaction.commit();
     }
 }

@@ -96,9 +96,11 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/save_data"
+        android:text="@string/button_next"
         android:id="@+id/btnSave_utgift"
         android:layout_gravity="center_horizontal" />
     </LinearLayout>
+
+
 
 </LinearLayout>
