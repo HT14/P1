@@ -90,12 +90,20 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"></LinearLayout>
+        android:layout_height="wrap_content">
+    </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button_next"
+        android:id="@+id/btnSave_inkomst"
+        android:layout_gravity="center_horizontal" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/save_data"
-        android:id="@+id/btnSave_inkomst"
+        android:id="@+id/btnShowResult"
         android:layout_gravity="center_horizontal" />
 </LinearLayout>

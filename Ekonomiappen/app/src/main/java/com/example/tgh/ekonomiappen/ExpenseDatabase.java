@@ -5,17 +5,14 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by TGH on 9/29/2014.
  */
-public class UtgiftDatabase extends SQLiteOpenHelper {
+public class ExpenseDatabase extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "Economi.db";
     public static final int DATABASE_VERSION = 1;
     SQLiteDatabase database;
@@ -29,7 +26,7 @@ public class UtgiftDatabase extends SQLiteOpenHelper {
                     DatabaseContract.DatabaseEntry.COLUMN_NAME_PRICE +  " " +TEXT_TYPE + "," +
                     DatabaseContract.DatabaseEntry.COLUMN_NAME_KATEGOGI +  " " +TEXT_TYPE +  " )";
 
-    public UtgiftDatabase(Context context) {
+    public ExpenseDatabase(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
@@ -56,7 +53,7 @@ public class UtgiftDatabase extends SQLiteOpenHelper {
         database.insert(DatabaseContract.DatabaseEntry.TABLE_NAME_1, null, values);
     }
     // Getting single expense
-    Utgifter getExpense(int id) {
+    Expense getExpense(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = db.query(DatabaseContract.DatabaseEntry.TABLE_NAME_1, new String[] {},
@@ -65,8 +62,14 @@ public class UtgiftDatabase extends SQLiteOpenHelper {
         if (cursor != null)
             cursor.moveToFirst();
 
-        Utgifter utgifter = new Utgifter(Integer.parseInt(cursor.getString(0)),
-                cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4));
+        int prodId = cursor.getInt(0);
+        String prodTitle = cursor.getString(1);
+        String prodDate = cursor.getString(2);
+        String prodPrice = cursor.getString(3);
+        String prodCat = cursor.getString(4);
+
+        Expense utgifter = new Expense(prodId, prodTitle, prodDate, prodPrice, prodCat);
+        System.out.println(prodId + " " + prodTitle + " " + prodDate + " " + prodPrice + " " + prodCat);
         // return expense
         return utgifter;
     }
@@ -93,8 +96,8 @@ public class UtgiftDatabase extends SQLiteOpenHelper {
     }*/
 
     // Getting All expenses
-    public List<Utgifter> getAllExpenses() {
-        List<Utgifter> utgiftList = new ArrayList<Utgifter>();
+    public List<Expense> getAllExpenses() {
+        List<Expense> utgiftList = new ArrayList<Expense>();
         // Select All Query
         String selectQuery = "SELECT  * FROM " + DatabaseContract.DatabaseEntry.TABLE_NAME_1;
 
@@ -104,12 +107,12 @@ public class UtgiftDatabase extends SQLiteOpenHelper {
         // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
             do {
-                Utgifter utgifter = new Utgifter();
-                utgifter.setId(Integer.parseInt(cursor.getString(0)));
-                utgifter.setTitle(cursor.getString(1));
-                utgifter.setDate(cursor.getString(2));
-                utgifter.setPrie(cursor.getString(3));
-                utgifter.setCategory(cursor.getString(4));
+                Expense utgifter = new Expense();
+                utgifter.setId(cursor.getInt(0));
+                utgifter.setTitle(cursor.getString(cursor.getColumnIndex(DatabaseContract.DatabaseEntry.COLUMN_NAME_TITLE)));
+                utgifter.setDate(cursor.getString(cursor.getColumnIndex(DatabaseContract.DatabaseEntry.COLUMN_NAME_DATUM)));
+                utgifter.setPrie(cursor.getString(cursor.getColumnIndex(DatabaseContract.DatabaseEntry.COLUMN_NAME_PRICE)));
+                utgifter.setCategory(cursor.getString(cursor.getColumnIndex(DatabaseContract.DatabaseEntry.COLUMN_NAME_KATEGOGI)));
 
                 // Adding costs to list
                 utgiftList.add(utgifter);

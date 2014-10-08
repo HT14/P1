@@ -3,17 +3,17 @@ package com.example.tgh.ekonomiappen;
 /**
  * Created by TGH on 10/3/2014.
  */
-public class Utgifter {
+public class Expense {
     private int id;
     private String title;
     private String date;
     private String price;
     private String category;
 
-    public Utgifter() {
+    public Expense() {
     }
 
-    public Utgifter (int id, String title, String date, String price, String category){
+    public Expense(int id, String title, String date, String price, String category){
         this.id = id;
         this.title = title;
         this.date = date;

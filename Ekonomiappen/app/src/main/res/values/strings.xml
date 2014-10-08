@@ -13,9 +13,15 @@
     <string name="kategori">Kategori: </string>
     <string name="inmatning_av_utgifter">Inmatning av utgifter</string>
     <string name="butten_save">Save</string>
+    <string name="butten_show_income">Show Incomes</string>
+    <string name="butten_show_expense">Show Expenses</string>
+    <string name="total_income">Total Income: </string>
+    <string name="total_expense">Total Expense: </string>
+    <string name="result_fragment">Your Economy Result: </string>
+    <string name="result">Result: </string>
     <string name="first_name">First Name: </string>
     <string name="last_name">Last Name: </string>
-    <string name="button_fortsät">Fortsätt</string>
+    <string name="button_next">Next</string>
     <string name="save_data">Save data</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
 

@@ -2,7 +2,6 @@ package com.example.tgh.ekonomiappen;
 
 import android.util.Log;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -10,68 +9,54 @@ import java.util.List;
  */
 public class Controller {
     private MainActivity activity;
-    private InkomstFragment inkomstFragment;
-    private UtgiftsFragment utgiftsFragment;
-    private UtgiftDatabase utgiftdb;
-    private IncomeDatabase incomedb;
+    private IncomeFragment incomeFragment;
+    private ExpenseFragment expenseFragment;
+    private ResultFragment resultFragment;
     private SharedPrefFragment sharedPrefFragment;
+    private ExpenseDatabase expensedb;
+    private IncomeDatabase incomedb;
 
-  /*  public Controller(MainActivity mainActivity, SharedPrefFragment sharedPrefFragment, UtgiftsFragment utgiftsFragment, InkomstFragment inkomstFragment) {
-        this.activity = mainActivity;
-        this.sharedPrefFragment = sharedPrefFragment;
-        this.inkomstFragment = inkomstFragment;
-        this.utgiftsFragment = utgiftsFragment;
-
-        utgiftsFragment.setController(this);
-        inkomstFragment.setController(this);
-        sharedPrefFragment.setController(this);
-
-        utgiftdb = new UtgiftDatabase(activity);
-        inkomstdb = new InkomstDatabase(activity);
-    }
-*/
     public Controller(MainActivity activity) {
         this.activity = activity;
         sharedPrefFragment = new SharedPrefFragment();
-        inkomstFragment = new InkomstFragment();
-        utgiftsFragment = new UtgiftsFragment();
+        incomeFragment = new IncomeFragment();
+        expenseFragment = new ExpenseFragment();
+        resultFragment = new ResultFragment();
 
-        utgiftsFragment.setController(this);
-        inkomstFragment.setController(this);
+        expenseFragment.setController(this);
+        incomeFragment.setController(this);
         sharedPrefFragment.setController(this);
+        resultFragment.setController(this);
 
-        utgiftdb = new UtgiftDatabase(activity);
+        expensedb = new ExpenseDatabase(activity);
         incomedb = new IncomeDatabase(activity);
+
         activity.setFragment(sharedPrefFragment, false);
     }
 
-    public void saveUtgiftClicked() {
-        utgiftdb.open();
-        utgiftdb.save(utgiftsFragment.getTitle(), utgiftsFragment.getDatum(), utgiftsFragment.getPrice(), utgiftsFragment.getKategori());
-        List<Utgifter> utgiftList = utgiftdb.getAllExpenses();
+    public void saveExpenseClicked(String title, String date, String price, String category) {
+        expensedb.open();
+        expensedb.save(title, date, price, category);
+        List<Expense> utgiftList = expensedb.getAllExpenses();
 
-        Log.d("Reading: ", "Reading all incomes..");
-
-        for (Utgifter ut : utgiftList) {
+        for (Expense ut : utgiftList) {
             String log = "Id: " + ut.getId() + " ,Title: " + ut.getTitle() + " ,Date: " + ut.getDate() +
                     " ,Price: " + ut.getPrice() + " ,Category: " + ut.getCategory();
 
             // Writing incomes to log
             Log.d("Title: ", log);
         }
-        //Map<String,String> utgftInfo = utgiftdb.getUtgifter();
-        utgiftdb.close();
+        //Map<String,String> utgftInfo = expensedb.getUtgifter();
+        expensedb.close();
     }
 
-    public void saveInkomstClicked() {
+    public void saveIncomeClicked() {
         incomedb.open();
-        incomedb.save(inkomstFragment.getTitle(), inkomstFragment.getDatum(), inkomstFragment.getBellop(), inkomstFragment.getKategori());
+        incomedb.save(incomeFragment.getTitle(), incomeFragment.getDatum(), incomeFragment.getBellop(), incomeFragment.getKategori());
         List<Income> incomeList = incomedb.getAllIncomes();
 
        // Reading all incomes
-        Log.d("Reading: ", "Reading all incomes..");
-
-        for (Income in : incomeList) {
+      for (Income in : incomeList) {
             String log = "Id: " + in.getId() + " ,Title: " + in.getTitle() + " ,Date: " + in.getDate() +
                     " ,Bellop: " + in.getBellop() + " ,Kategori: " + in.getCategory();
 
@@ -81,9 +66,16 @@ public class Controller {
         incomedb.close();
     }
 
-
     public void registerUser() {
-        activity.setUtgifter(utgiftsFragment);
-        activity.setInkomster(inkomstFragment);
+        activity.setExpense(expenseFragment);
+        activity.setIncome(incomeFragment);
+    }
+
+    public void showResultFragment() {
+        String user = sharedPrefFragment.loadPrefs();
+        Log.d("test", "resultFrag ? " + (resultFragment == null ? "null" : "ok"));
+        Log.d("test", "user ? " + (user == null ? "null" : "ok"));
+        //resultFragment.setUser(user);
+        activity.setResult(user);
     }
 }
