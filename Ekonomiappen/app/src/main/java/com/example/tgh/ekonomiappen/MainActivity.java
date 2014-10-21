@@ -10,9 +10,7 @@ import android.view.MenuItem;
 
 
 public class MainActivity extends Activity {
-    private Controller controller;
-    private ExpenseFragment expense;
-    private IncomeFragment income;
+    public Controller controller;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,20 +26,6 @@ public class MainActivity extends Activity {
         if (backstack){
             fragmentTransaction.addToBackStack(null);
         }
-        fragmentTransaction.commit();
-    }
-
-    public void setExpense(ExpenseFragment expense) {
-        FragmentManager fragmentManager = getFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.upper_container, (Fragment)expense);
-        fragmentTransaction.commit();
-    }
-
-    public void setIncome(IncomeFragment income) {
-        FragmentManager fragmentManager = getFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.lower_container, (Fragment) income);
         fragmentTransaction.commit();
     }
 
@@ -62,13 +46,5 @@ public class MainActivity extends Activity {
             return true;
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    public void setResult(String user) {
-        ResultFragment resultFragment = ResultFragment.newInstance(user);
-        FragmentManager fm = getFragmentManager();
-        FragmentTransaction fragmentTransaction = fm.beginTransaction();
-        fragmentTransaction.replace(R.id.upper_container, resultFragment);
-        fragmentTransaction.commit();
     }
 }

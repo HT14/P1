@@ -7,17 +7,17 @@ public class Income {
     private int id;
     private String title;
     private String date;
-    private String bellop;
+    private String amount;
     private String category;
 
     public Income() {
     }
 
-    public Income(int id, String title, String date, String bellop, String category){
+    public Income(int id, String title, String date, String amount, String category){
         this.id = id;
         this.title = title;
         this.date = date;
-        this.bellop = bellop;
+        this.amount = amount;
         this.category = category;
     }
 
@@ -33,12 +33,12 @@ public class Income {
         return date;
     }
 
-    public String getBellop (){
-        return bellop;
+    public String getAmount (){
+        return amount;
     }
 
     public String getCategory (){
-        return date;
+        return category;
     }
 
     public void setId (int id){
@@ -53,11 +53,24 @@ public class Income {
         this.date = date;
     }
 
-    public void setBellop (String price){
-        this.bellop = bellop;
+    public void setAmount (String amount){
+        this.amount = amount;
     }
 
     public void setCategory (String category){
         this.category = category;
+    }
+
+    public String getIncome (){
+        String res =
+                "            Title:    " + title + "\n\n" +
+                "            Date:     " + date + "\n\n" +
+                "            Price:    " + amount + "\n\n" +
+                "            Category: " + category;
+        return res;
+    }
+
+    public String toString() {
+        return title;
     }
 }

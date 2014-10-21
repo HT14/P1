@@ -35,6 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:textSize="18sp"
+            android:textColor="#00f"
             android:text="@string/first_name"
             android:id="@+id/tvUser"/>
 
@@ -49,11 +50,14 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="@string/total_expense"
+            android:textSize = "18sp"
             android:id="@+id/tvTotalExpenes" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize = "18sp"
+            android:textColor="#00f"
             android:id="@+id/tvExpenseResult" />
 
     </LinearLayout>
@@ -67,11 +71,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/total_income"
+            android:textSize = "18sp"
             android:id="@+id/tvTotalIncomes" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="#00f"
+            android:textSize = "18sp"
             android:id="@+id/tvIncomeResult" />
 
     </LinearLayout>
@@ -85,11 +92,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/result"
+            android:textSize = "18sp"
             android:id="@+id/tvResult" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="#00f"
+            android:textSize = "18sp"
             android:id="@+id/tvSurplusLoss" />
 
     </LinearLayout>
@@ -97,22 +107,64 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="41dp">
+        android:layout_height="43dp">
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/button_add_expense"
+            android:layout_weight="1"
+            android:id="@+id/btnAddExpense" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/button_add_income"
+            android:layout_weight="1"
+            android:id="@+id/btnAddIncome" />
+
+        </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="43dp">
+
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/butten_show_income"
-        android:id="@+id/btnIncome"
+        android:text="@string/button_expense_table"
+        android:id="@+id/btnExpenseTable"
         android:layout_weight="1"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/butten_show_expense"
+        android:text="@string/button_income_table"
         android:layout_weight="1"
-        android:id="@+id/btnExpense" />
+        android:id="@+id/btnIncomeTable" />
     </LinearLayout>
 
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="43dp">
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/button_expense_list"
+            android:id="@+id/btnExpenseList"
+            android:layout_weight="1"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/button_income_list"
+            android:layout_weight="1"
+            android:id="@+id/btnIncomeList" />
+    </LinearLayout>
 </LinearLayout>
 

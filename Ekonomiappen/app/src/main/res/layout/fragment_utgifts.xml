@@ -3,7 +3,21 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    tools:context="com.example.tgh.economiappen.InkomstFragment">
+    tools:context="com.example.tgh.economiappen.ExpenseFragment">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+        <Button
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:text="@string/back"
+            android:id="@+id/btnBack"
+            android:layout_gravity="center_vertical" />
+
+    </LinearLayout>
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
@@ -12,6 +26,7 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:text="@string/inmatning_av_utgifter"
+        android:textStyle="bold"
         android:textSize="22sp" />
 
     <LinearLayout
@@ -89,17 +104,34 @@
     </LinearLayout>
 
     <LinearLayout
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
     <Button
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/button_save"
+        android:id="@+id/btnSave_utgift"
+        android:layout_gravity="center_horizontal"
+        android:singleLine="false" />
+
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/add_plus"
+        android:id="@+id/btnAdd_expense"
+        android:layout_gravity="center_horizontal" />
+
+    </LinearLayout>
+
+    <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/button_next"
-        android:id="@+id/btnSave_utgift"
-        android:layout_gravity="center_horizontal" />
-    </LinearLayout>
+        android:text="@string/button_scan"
+        android:id="@+id/scan_button" />
 
 
 
