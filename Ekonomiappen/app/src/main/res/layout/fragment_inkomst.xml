@@ -5,6 +5,21 @@
     android:orientation="vertical"
     tools:context="com.example.tgh.economiappen.InkomstFragment">
 
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+        <Button
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:text="@string/back"
+            android:id="@+id/btnBack"
+            android:layout_gravity="center_vertical" />
+
+
+    </LinearLayout>
+
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:id="@+id/tvInkomster"
@@ -12,6 +27,7 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:text="@string/inmatning_av_inkomster"
+        android:textStyle="bold"
         android:textSize="22sp" />
 
     <LinearLayout
@@ -93,8 +109,10 @@
         android:layout_height="wrap_content">
     </LinearLayout>
 
-    <Button
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
+<<<<<<< HEAD
         android:layout_height="wrap_content"
         android:text="@string/button_next"
         android:id="@+id/btnSave_inkomst"
@@ -106,4 +124,25 @@
         android:text="@string/save_data"
         android:id="@+id/btnShowResult"
         android:layout_gravity="center_horizontal" />
+=======
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/button_save"
+            android:id="@+id/btnSave_Income"
+            android:layout_gravity="center_horizontal" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/add_plus"
+            android:id="@+id/btnAdd_Income"
+            android:layout_gravity="center_horizontal" />
+
+    </LinearLayout>
+>>>>>>> tequam
 </LinearLayout>

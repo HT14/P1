@@ -10,9 +10,13 @@ import android.view.MenuItem;
 
 
 public class MainActivity extends Activity {
+<<<<<<< HEAD
     private Controller controller;
     private ExpenseFragment expense;
     private IncomeFragment income;
+=======
+    public Controller controller;
+>>>>>>> tequam
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +35,7 @@ public class MainActivity extends Activity {
         fragmentTransaction.commit();
     }
 
+<<<<<<< HEAD
     public void setExpense(ExpenseFragment expense) {
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -45,6 +50,8 @@ public class MainActivity extends Activity {
         fragmentTransaction.commit();
     }
 
+=======
+>>>>>>> tequam
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

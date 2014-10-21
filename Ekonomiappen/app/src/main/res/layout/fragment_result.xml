@@ -35,6 +35,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:textSize="18sp"
+<<<<<<< HEAD
+=======
+            android:textColor="#00f"
+>>>>>>> tequam
             android:text="@string/first_name"
             android:id="@+id/tvUser"/>
 
@@ -49,11 +53,20 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="@string/total_expense"
+<<<<<<< HEAD
+=======
+            android:textSize = "18sp"
+>>>>>>> tequam
             android:id="@+id/tvTotalExpenes" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
+=======
+            android:textSize = "18sp"
+            android:textColor="#00f"
+>>>>>>> tequam
             android:id="@+id/tvExpenseResult" />
 
     </LinearLayout>
@@ -67,11 +80,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/total_income"
+<<<<<<< HEAD
+=======
+            android:textSize = "18sp"
+>>>>>>> tequam
             android:id="@+id/tvTotalIncomes" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
+=======
+            android:textColor="#00f"
+            android:textSize = "18sp"
+>>>>>>> tequam
             android:id="@+id/tvIncomeResult" />
 
     </LinearLayout>
@@ -85,11 +107,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/result"
+<<<<<<< HEAD
+=======
+            android:textSize = "18sp"
+>>>>>>> tequam
             android:id="@+id/tvResult" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
+=======
+            android:textColor="#00f"
+            android:textSize = "18sp"
+>>>>>>> tequam
             android:id="@+id/tvSurplusLoss" />
 
     </LinearLayout>
@@ -97,22 +128,81 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
+<<<<<<< HEAD
         android:layout_height="41dp">
+=======
+        android:layout_height="43dp">
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/button_add_expense"
+            android:layout_weight="1"
+            android:id="@+id/btnAddExpense" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/button_add_income"
+            android:layout_weight="1"
+            android:id="@+id/btnAddIncome" />
+
+        </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="43dp">
+
+>>>>>>> tequam
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:text="@string/butten_show_income"
         android:id="@+id/btnIncome"
+=======
+        android:text="@string/button_expense_table"
+        android:id="@+id/btnExpenseTable"
+>>>>>>> tequam
         android:layout_weight="1"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:text="@string/butten_show_expense"
         android:layout_weight="1"
         android:id="@+id/btnExpense" />
     </LinearLayout>
 
+=======
+        android:text="@string/button_income_table"
+        android:layout_weight="1"
+        android:id="@+id/btnIncomeTable" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="43dp">
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/button_expense_list"
+            android:id="@+id/btnExpenseList"
+            android:layout_weight="1"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/button_income_list"
+            android:layout_weight="1"
+            android:id="@+id/btnIncomeList" />
+    </LinearLayout>
+>>>>>>> tequam
 </LinearLayout>
 

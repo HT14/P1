@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">EconomiAppen</string>
+    <string name="app_name">Ekonomiappen</string>
     <string name="hello_world">Hello world!</string>
-    <string name="welcome">Welcome to the Economy App!</string>
+    <string name="expense_detail">Expense Detail</string>
+    <string name="income_detail">Income Detail</string>
+    <string name="welcome">Welcome to your Economy App!</string>
+
     <string name="action_settings">Settings</string>
     <string name="inmatning_av_inkomster">Inmatning av Inkomster</string>
     <string name="title">Title: </string>
@@ -12,6 +15,7 @@
     <string name="belopp">Belopp: </string>
     <string name="kategori">Kategori: </string>
     <string name="inmatning_av_utgifter">Inmatning av utgifter</string>
+<<<<<<< HEAD
     <string name="butten_save">Save</string>
     <string name="butten_show_income">Show Incomes</string>
     <string name="butten_show_expense">Show Expenses</string>
@@ -23,6 +27,29 @@
     <string name="last_name">Last Name: </string>
     <string name="button_next">Next</string>
     <string name="save_data">Save data</string>
+=======
+
+    <string name="button_save">Save</string>
+    <string name="button_scan">Scan</string>
+    <string name="button_income_table">Show Income Table</string>
+    <string name="button_income_list">Show Income List</string>
+    <string name="button_expense_table">Show Expense Table</string>
+    <string name="button_expense_list">Show Expense List</string>
+    <string name="button_add_expense">Add New Expense</string>
+    <string name="button_add_income">Add New Income</string>
+
+    <string name="total_income">  Total Income: </string>
+    <string name="total_expense">  Total Expense: </string>
+    <string name="result_fragment">  Your Economy Result: </string>
+    <string name="result">  Result: </string>
+    <string name="first_name">First Name: </string>
+    <string name="last_name">Last Name: </string>
+    <string name="button_next">Next</string>
+    <string name="back">Back</string>
+    <string name="add">Add</string>
+    <string name="add_plus">Add +</string>
+    <string name="save">Save</string>
+>>>>>>> tequam
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

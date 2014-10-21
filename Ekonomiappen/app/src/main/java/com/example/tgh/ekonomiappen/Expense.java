@@ -1,5 +1,8 @@
 package com.example.tgh.ekonomiappen;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by TGH on 10/3/2014.
  */
@@ -53,11 +56,23 @@ public class Expense {
         this.date = date;
     }
 
-    public void setPrie (String price){
+    public void setPrice (String price){
         this.price = price;
     }
 
+    public String getExpense (){
+        String res =
+                "            Title:    " + title + "\n\n" +
+                "            Date:     " + date + "\n\n" +
+                "            Price:    " + price + "\n\n" +
+                "            Category: " + category;
+        return res;
+    }
     public void setCategory (String category){
         this.category = category;
+    }
+
+    public String toString() {
+        return title;
     }
 }
